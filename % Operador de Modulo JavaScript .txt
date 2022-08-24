@@ -1,0 +1,69 @@
+Este tutorial enseña cómo utilizar el operador de módulo % en JavaScript.
+Operador restante % en JavaScript
+
+Da el resto que queda cuando un número (dividendo) se
+ divide por otro número (divisor). Este operador no es el mismo que el operador módulo en otros idiomas 
+porque tiene un propósito diferente. Sus resultados son los mismos solo para un dividendo positivo,
+ pero si tenemos un dividendo negativo a y se le aplica un operador de módulo, entonces los resultados 
+serán completamente diferentes. El resultado obtenido por la expresión ( (a % n) + n) % n usando el 
+operador de resto en JavaScript es el mismo que el resultado obtenido usando el operador de módulo en a % n.
+Ejemplo de uso del operador restante % en JavaScript
+Módulo con dividendo positivo
+
+1 % -2 //  1
+ 2 % 3  //  2
+5.5 % 2 // 1.5
+12 % 5  //  2
+ 1 % 2  //  1
+
+Resto con dividendo negativo
+
+-12 % 5 // -2
+-1 % 2  // -1
+-4 % 2  // -0
+
+Resto con NaN
+
+NaN % 2 // NaN
+
+Resto con infinito
+
+Infinity % 2 // NaN
+Infinity % 0 // NaN
+Infinity % Infinity // NaN
+
+Aplicaciones
+¿Es un número par o impar?
+
+Podemos comprobar si un número entero es par comprobando 
+si es divisible por 2. Podemos usar el valor de retorno del 
+operador de módulo. Si es 0, significa que el número es par.
+
+function isEven(n) {
+  return n % 2 === 0;
+}
+
+isEven(6);// true
+isEven(3);// false
+
+La parte fraccionaria de un número
+
+Podemos hacer esto simplemente calculando n % 1.
+
+function getFractionalPart(n) {
+  return n % 1;
+}
+
+getFractionalPart(2.5); // 0.5
+
+Convertir minutos en horas
+
+Cuando se nos da un número n que representa el número de minutos y 
+queremos convertirlo en horas y minutos, podemos usar el operador de módulo.
+
+const minutesToHoursAndMinutes = n => ({
+  hours: Math.floor(n / 60),
+  minutes: n % 60
+});
+
+minutesToHoursAndMinutes(123); // { hours: 2, minutes: 3 }
